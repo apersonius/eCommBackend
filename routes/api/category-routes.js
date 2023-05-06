@@ -11,14 +11,12 @@ router.get('/', (req, res) => {
     {
       include: {
         model: Product,
-
         attributes: ['product_name']
       }
     }
   )
-  .then(categoryData => res.json(categoryData))
-  .catch(err);
-  res.status(500).json(err);
+  .then((categoryData) => res.json(categoryData))
+  .catch((err) => res.status(500).json(err))
 });
 
 router.get('/:id', (req, res) => {
